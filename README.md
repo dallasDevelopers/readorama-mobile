@@ -51,4 +51,4 @@ Our website is designed to be user-friendly and accessible, ensuring that indivi
 
 ### Links
 1. [Progress Report](https://docs.google.com/spreadsheets/d/1J_XofAGogf_eRdN14B4U-QTHBlw2JpMJPDsGKxBsu18/edit?usp=sharing)
-2. 
+2. [App Link](https://github.com/dallasDevelopers/readorama-mobile/releases/tag/1.0.0%2B1)
