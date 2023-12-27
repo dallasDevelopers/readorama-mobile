@@ -44,3 +44,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+/.gradle
+/captures/
+/local.properties
+GeneratedPluginRegistrant.java
+
+key.properties
+**/*.keystore
+**/*.jks
