@@ -22,6 +22,12 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def keystoreProperties = new Properties()
+   def keystorePropertiesFile = rootProject.file('key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
 android {
     namespace "com.example.readoramamobile"
     compileSdkVersion flutter.compileSdkVersion
@@ -52,13 +58,22 @@ android {
     }
 
     signingConfigs {
-     release {
-             storeFile file("../../release-keystore.jks")
-             storePassword = "$System.env.KEY_PASSWORD"
-             keyAlias = "release"
-             keyPassword = "$System.env.KEY_PASSWORD"
-     }
-}
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
+
+//     signingConfigs {
+//      release {
+//              storeFile file("../../release-keystore.jks")
+//              storePassword = "$System.env.KEY_PASSWORD"
+//              keyAlias = "release"
+//              keyPassword = "$System.env.KEY_PASSWORD"
+//      }
+// }
     buildTypes {
         release {
             signingConfig signingConfigs.release
